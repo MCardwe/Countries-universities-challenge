@@ -10,3 +10,13 @@ export const getCountries = () => {
     })
   }
 
+export const getUniversities = (selectedCountry) => {
+    return fetch(`http://universities.hipolabs.com/search?country=${selectedCountry}`)
+    .then((response) => {
+      if (response.ok) {
+        return response.json();
+      }
+      throw new Error(`Could not find universities with the name ${selectedCountry}`)
+    })
+  }
+
