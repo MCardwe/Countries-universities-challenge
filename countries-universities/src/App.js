@@ -6,7 +6,7 @@ import SearchBar from './containers/SearchBar';
 
 function App() {
   const [countries, setCountries] = useState([]);
-  const [universities, setUniversities] = useState([]);
+  const [universities, setUniversities] = useState(null);
   const [selectedCountryName, setSelectedCountryName] = useState(null);
 
   const selectedCountry = useMemo(
@@ -50,8 +50,10 @@ function App() {
 
   return (
     <div className="App">
-      <HeroSection />
-      <SearchBar countries={countries} selectCountryName={selectCountryName} />
+      <div className='page'>
+        <HeroSection universities={universities} />
+        <SearchBar countries={countries} selectCountryName={selectCountryName} />
+      </div>
     </div>
   );
 }
