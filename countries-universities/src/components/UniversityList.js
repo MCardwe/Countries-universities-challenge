@@ -1,17 +1,26 @@
-import React from 'react'
-import UniversityListItem from './UniversityListItem'
+import React from "react";
+import UniversityListItem from "./UniversityListItem";
 
 function UniversityList({ universities }) {
+  let universityNodes = [];
 
-    const universityNodes = universities.map((university) => {
-        return <UniversityListItem name={university.name} webPages={university.web_pages} />
-    }) 
+  if (universities) {
+    universityNodes = universities.map((university, index) => {
+      return <li><UniversityListItem university={university} key={index} /> </li>;
+    });
+  }
 
   return (
     <>
-        {universityNodes ? universityNodes : null}
+      {!universityNodes.length == 0 ? (
+        <ul>
+          {universityNodes}
+        </ul>
+      ) : (
+        <h2>No universities found</h2>
+      )}
     </>
-  )
+  );
 }
 
-export default UniversityList
+export default UniversityList;

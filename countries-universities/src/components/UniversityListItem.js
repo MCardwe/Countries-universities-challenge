@@ -1,17 +1,21 @@
-import React from 'react'
+import React from "react";
 
-function UniversityListItem({ name, webPages }) {
-    let universityUrl
+function UniversityListItem({ university }) {
+  let universityUrl;
 
-    if (webPages !== undefined && webPages.length !== 0) {
-        universityUrl = `${webPages[0]}`
-    }
+  if (university.web_pages !== undefined || university.web_pages.length !== 0) {
+    universityUrl = `${university.web_pages[0]}`;
+  }
 
   return (
-    <div className='university-list-item'>
-        <a href={universityUrl}>{name}</a>
+    <div className="university-list-item">
+      {university ? (
+        <a href={universityUrl}>{university.name}</a>
+      ) : (
+        <h2>Couldn't find universities</h2>
+      )}
     </div>
-  )
+  );
 }
 
-export default UniversityListItem
+export default UniversityListItem;
