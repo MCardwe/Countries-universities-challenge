@@ -10,7 +10,7 @@ function UniversityListItem({ university }) {
   return (
     <div className="university-list-item">
       {university ? (
-        <a href={universityUrl}>{university.name}</a>
+        <a href={universityUrl} target="_blank">{university.name}</a>
       ) : (
         <h2>Couldn't find universities</h2>
       )}
